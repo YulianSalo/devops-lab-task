@@ -1,14 +1,14 @@
-# check-filepath.sh
+# check-filename.sh
 
-## File Path Naming Checker
+## File Naming Checker
 
-This script enforces an **strict file path naming convention for files and directories** across a project directory structure to ensure consistency, prevent cross-platform issues, and maintain a high standard of code quality. It performs a recursive check on files with specific extensions, flagging any file that does not adhere to the strict, lowercase-only naming pattern.
+This script enforces an **strict file naming convention** across a project directory structure to ensure consistency, prevent cross-platform issues, and maintain a high standard of code quality. It performs a recursive check on files with specific extensions, flagging any file that does not adhere to the strict, lowercase-only naming pattern.
 
 ## Strict Naming Rules Enforced
 
-The script uses a precise regular expression defined by the `NAME_PATTERN="^[a-z][a-z0-9_-]*[a-z0-9]\."` to validate file and directory names.
+The script uses a precise regular expression defined by the `NAME_PATTERN="[a-z][a-z0-9_-]*[a-z0-9]\."` to validate filenames.
 
-**A valid file/directory name MUST adhere to all these rules:**
+**A valid filename MUST adhere to all these rules:**
 
 1. **Starts with lowercase:** Must begin with a lowercase letter (`[a-z]`). It **cannot** start with a digit (`[0-9]`), underscore (`_`), or dash (`-`).
 
@@ -38,17 +38,17 @@ To run the quality check, simply execute the script and provide the target direc
 
 ### Syntax
 
-`./check-filepath.sh <path_to_directory>`
+`./check-filename.sh <path_to_directory>`
 
 ### Example
 
 To check the current directory (recursively):
 
-`./check-filepath.sh ./`
+`./check-filename.sh ./`
 
 To check a specific project folder:
 
-`./check-filepath.sh ./my_project_repo`
+`./check-filename.sh ./my_project_repo`
 
 ## Configuration
 
@@ -56,8 +56,8 @@ The core validation logic is defined by the following variables at the top of th
 
 | Variable | Description |
 | ----- | ----- |
-| `NAME_PATTERN` | The regex for the file/directory name part (before the dot). Modify this to change the strictness of the naming convention. |
-| `EXTENSIONS` | A pipe-separated string of file extensions to check (e.g., \`py |
+| `NAME_PATTERN` | The regex for the filename part (before the dot). Modify this to change the strictness of the naming convention. |
+| `EXTENSIONS` | A pipe-separated string of extensions to check (e.g., \`py |
 | `FILE_PATTERN` | The combination of `NAME_PATTERN` and `EXTENSIONS`. |
 
 You can easily modify the `EXTENSIONS` variable to include or exclude file types based on your project needs.
